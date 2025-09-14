@@ -2,7 +2,8 @@
 
 A real-time voice-controlled drawing application that converts speech to visual diagrams using AI. Simply speak your ideas and watch them transform into interactive Mermaid diagrams rendered on an Excalidraw canvas.
 
-![AlienBoard Interface](client/public/hero.png)
+[![image.png](https://i.postimg.cc/qBPRdfvn/image.png)](https://postimg.cc/K45FnHLv)
+
 
 ## ✨ Features
 
