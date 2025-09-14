@@ -58,12 +58,12 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
 }
 
 function getBaseUrl() {
-  // If running in the browser, just use the current origin
   if (typeof window !== "undefined") {
-    return window.location.origin;
+    // In dev, hit local backend
+    return import.meta.env.DEV
+      ? "http://localhost:4000"
+      : "https://alienboard.onrender.com";
   }
-
-  // On server / SSR / build, fall back to env
-  //@ts-ignore
-  return import.meta.env.VITE_API_URL;
+  // Server-side / SSR
+  return process.env.VITE_API_URL || "https://alienboard.onrender.com";
 }
