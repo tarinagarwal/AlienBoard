@@ -217,7 +217,7 @@ const VoiceDraw = () => {
   return (
     <div className="items between h-full w-full flex-col items-center">
       <div className="mr-4 mt-2 w-full flex-row justify-end py-2 text-center font-bold text-alien-green lg:hidden glow-text">
-        voiceboard
+        AlienBoard
       </div>
       <div className="grid justify-center text-white lg:grid-cols-2">
         <div className="flex w-full flex-row px-4 py-2 text-center md:px-12 md:py-4">
