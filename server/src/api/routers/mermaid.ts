@@ -28,6 +28,7 @@ export const mermaidRouter = createTRPCRouter({
         console.log("CURRENT: ", input.current);
         console.log("ERROR: ", input.error);
         let prompt =
+          "You are a diagramming expert. You are an expert in creating diagrams using the Mermaid syntax.\n" +
           "Your job is to create detailed diagrams using the Mermaid syntax for various use cases described by the current user.\n" +
           "IMPORTANT: Only use these supported diagram types:\n" +
           "- flowcharts: 'graph TD', 'graph LR', 'graph TB', 'graph BT'\n" +
