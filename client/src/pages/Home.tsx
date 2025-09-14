@@ -3,6 +3,7 @@
 import type React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Footer from "~/components/Footer";
 
 const Home: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,16 +13,18 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-black text-foreground">
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted"></div>
+        <div className="absolute inset-0 bg-black"></div>
 
         <div
           className={`relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ${
             isVisible ? "fade-in-up" : "opacity-0"
           }`}
         >
-            <p className="text-sm text-red-300 mb-4 border-[3px] border-red-600 rounded-full p-2 px-3 w-fit mx-auto">Known Issue: Brave browser does not support the Web Speech API.</p>
+          <p className="text-sm text-red-300 mb-4 border-[3px] border-red-600 rounded-full p-2 px-3 w-fit mx-auto">
+            Known Issue: Brave browser does not support the Web Speech API.
+          </p>
           <h1
             className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 glow-text"
             style={{ fontFamily: "var(--font-fredoka)" }}
@@ -57,7 +60,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-muted">
+      <section id="features" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
@@ -179,7 +182,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Demo Video Section */}
-      <section id="demo" className="py-20 bg-background">
+      <section id="demo" className="py-20 bg-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2
@@ -212,7 +215,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Supported Diagrams Section */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
@@ -258,9 +261,9 @@ const Home: React.FC = () => {
       {/* CTA Section */}
       <section
         id="download"
-        className="py-20 bg-background relative overflow-hidden"
+        className="py-20 bg-black relative overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10"></div>
+        <div className="absolute inset-0 bg-black"></div>
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 glow-text"
@@ -284,16 +287,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-muted py-12 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-            <p>
-              &copy; 2025 AlienBoard. Made with ❤️ by Tarin. All rights
-              reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
