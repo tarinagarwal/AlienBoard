@@ -11,7 +11,6 @@ import { createQueryClient } from "./query-client";
 let clientQueryClientSingleton: QueryClient | undefined = undefined;
 const getQueryClient = () => {
   if (typeof window === "undefined") {
-
     return createQueryClient();
   }
 
@@ -20,9 +19,7 @@ const getQueryClient = () => {
 
 export const api = createTRPCReact<AppRouter>();
 
-
 export type RouterInputs = inferRouterInputs<AppRouter>;
-
 
 export type RouterOutputs = inferRouterOutputs<AppRouter>;
 
@@ -61,6 +58,12 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
 }
 
 function getBaseUrl() {
-  if (typeof window !== "undefined") return window.location.origin;
-  return `http://localhost:4000`;
+  // If running in the browser, just use the current origin
+  if (typeof window !== "undefined") {
+    return window.location.origin;
+  }
+
+  // On server / SSR / build, fall back to env
+  //@ts-ignore
+  return import.meta.env.VITE_API_URL;
 }
