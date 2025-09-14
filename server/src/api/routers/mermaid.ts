@@ -29,7 +29,15 @@ export const mermaidRouter = createTRPCRouter({
         console.log("ERROR: ", input.error);
         let prompt =
           "Your job is to create detailed diagrams using the Mermaid syntax for various use cases described by the current user.\n" +
-          "If there is already Mermaid syntax in the prompt, you must attempt to modify the diagram as described by the user rather than starting from scratch.\n" +
+          "IMPORTANT: Only use these supported diagram types:\n" +
+          "- flowcharts: 'graph TD', 'graph LR', 'graph TB', 'graph BT'\n" +
+          "- class diagrams: 'classDiagram'\n" +
+          "- sequence diagrams: 'sequenceDiagram'\n" +
+          "If the user requests an ER diagram, Gantt chart, or other unsupported type, convert it to a flowchart instead.\n" +
+          "For ER diagrams, use rectangles for entities and arrows for relationships.\n" +
+          "For Gantt charts, use a flowchart with timeline structure.\n" +
+          "YOU MUST RESPOND IN MERMAID SYNTAX. RESPONSES THAT ARE NOT A MERMAID CODEBLOCK WILL BE INVALID.\n";
+        "If there is already Mermaid syntax in the prompt, you must attempt to modify the diagram as described by the user rather than starting from scratch.\n" +
           "YOU MUST RESPOND IN MERMAID SYNTAX. RESPONSES THAT ARE NOT A MERMAID CODEBLOCK WILL BE INVALID.\n" +
           "Notes: You can draw circles by using 2 parenthesis.\n";
 
